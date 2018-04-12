@@ -1,6 +1,7 @@
 package com.hispeed.development.service;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import com.alibaba.dubbo.rpc.RpcContext;
 import com.hispeed.development.config.IConfigService;
 import com.hispeed.development.domain.config.SysConfig;
 import com.hispeed.development.mapper.SysConfigMapper;
@@ -19,7 +20,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * @date 2018-4-2
  * @desc 系统配置实现类service
  */
-@Service(version = "1.0.0")
+@Service(version = "1.0.0", timeout = 5000)
 public class SysConfigServiceImpl implements IConfigService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SysConfigServiceImpl.class);
@@ -76,8 +77,11 @@ public class SysConfigServiceImpl implements IConfigService {
                     + sysConfig.getConfigValue();
             sysConfig.setMd5Value(DigestUtils.md5Hex(md5Source));
             sysConfigFinal.add(sysConfig);
+
         }
-        LOGGER.debug("根据projectName={}获取全量配置信息--{}", projectName, sysConfigFinal.toString());
+        // TODO 收集调用方的端口 ip
+        String host = RpcContext.getContext().getRemoteHost();
+        LOGGER.debug("远程主机{},根据projectName={}获取全量配置信息--{}", host,projectName, sysConfigFinal.toString());
         return sysConfigFinal;
     }
 
