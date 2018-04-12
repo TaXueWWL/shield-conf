@@ -1,0 +1,4 @@
+com\hispeed\development\service\SysConfigServiceImpl.class
+com\hispeed\development\mapper\SysConfigMapper.class
+com\hispeed\development\App$MyTomcatConnectorCustomizer.class
+com\hispeed\development\App.class

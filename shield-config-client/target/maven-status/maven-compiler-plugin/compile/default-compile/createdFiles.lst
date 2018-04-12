@@ -1,0 +1,5 @@
+com\hispeed\development\runner\InitConfigMapCommandLineRunner.class
+com\hispeed\development\schedule\FetchAllConfigSchedule.class
+com\hispeed\development\cache\ConfigMap.class
+com\hispeed\development\client\Profiles.class
+com\hispeed\development\runner\InitConfigBean.class

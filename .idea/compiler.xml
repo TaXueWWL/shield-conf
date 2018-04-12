@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <resourceExtensions />
+    <wildcardResourcePatterns>
+      <entry name="!?*.java" />
+      <entry name="!?*.form" />
+      <entry name="!?*.class" />
+      <entry name="!?*.groovy" />
+      <entry name="!?*.scala" />
+      <entry name="!?*.flex" />
+      <entry name="!?*.kt" />
+      <entry name="!?*.clj" />
+      <entry name="!?*.aj" />
+    </wildcardResourcePatterns>
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="false">
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="common" />
+        <module name="config-client" />
+        <module name="gateway" />
+        <module name="merchant-interface-test-tool-qa" />
+        <module name="portal-shop-server" />
+        <module name="rpc-api" />
+        <module name="rpc-config-service" />
+        <module name="rpc-goods-service" />
+        <module name="rpc-user-service" />
+        <module name="shield-common" />
+        <module name="shield-config-client" />
+        <module name="shield-rpc-api" />
+        <module name="shield-rpc-config-server" />
+        <module name="shield-rpc-config-service" />
+        <module name="shop-admin-server" />
+        <module name="shop-portal-server" />
+        <module name="video-member" />
+        <module name="zheng-admin" />
+        <module name="zheng-api-common" />
+        <module name="zheng-api-rpc-api" />
+        <module name="zheng-api-server" />
+        <module name="zheng-cms-admin" />
+        <module name="zheng-cms-common" />
+        <module name="zheng-cms-dao" />
+        <module name="zheng-cms-job" />
+        <module name="zheng-cms-rpc-api" />
+        <module name="zheng-cms-search" />
+        <module name="zheng-cms-web" />
+        <module name="zheng-common" />
+        <module name="zheng-demo-rpc-api" />
+        <module name="zheng-demo-web" />
+        <module name="zheng-oss-admin" />
+        <module name="zheng-oss-sdk" />
+        <module name="zheng-oss-web" />
+        <module name="zheng-pay-admin" />
+        <module name="zheng-pay-common" />
+        <module name="zheng-pay-dao" />
+        <module name="zheng-pay-rpc-api" />
+        <module name="zheng-pay-sdk" />
+        <module name="zheng-pay-web" />
+        <module name="zheng-ucenter-common" />
+        <module name="zheng-ucenter-dao" />
+        <module name="zheng-ucenter-rpc-api" />
+        <module name="zheng-ucenter-web" />
+        <module name="zheng-upms-client" />
+        <module name="zheng-upms-common" />
+        <module name="zheng-upms-dao" />
+        <module name="zheng-upms-rpc-api" />
+        <module name="zheng-upms-server" />
+        <module name="zheng-wechat-mp-admin" />
+        <module name="zheng-wechat-mp-dao" />
+        <module name="zheng-wechat-mp-service" />
+      </profile>
+      <profile default="false" name="Annotation profile for zheng-upms-rpc-service" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="zheng-upms-rpc-service" />
+      </profile>
+      <profile default="false" name="Annotation profile for zheng-cms-rpc-service" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="zheng-cms-rpc-service" />
+      </profile>
+      <profile default="false" name="Annotation profile for zheng-pay-rpc-service" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="zheng-pay-rpc-service" />
+      </profile>
+      <profile default="false" name="Annotation profile for zheng-ucenter-rpc-service" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="zheng-ucenter-rpc-service" />
+      </profile>
+      <profile default="false" name="Annotation profile for zheng-demo-rpc-service" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="zheng-demo-rpc-service" />
+      </profile>
+      <profile default="false" name="Annotation profile for zheng-api-rpc-service" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="zheng-api-rpc-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="common" target="1.7" />
+      <module name="config-client" target="1.7" />
+      <module name="dev-archetype" target="1.7" />
+      <module name="gateway" target="1.6" />
+      <module name="merchant-interface-test-tool-qa" target="1.7" />
+      <module name="portal-shop-server" target="1.7" />
+      <module name="rpc-api" target="1.7" />
+      <module name="rpc-config-service" target="1.7" />
+      <module name="rpc-goods-service" target="1.7" />
+      <module name="rpc-user-service" target="1.7" />
+      <module name="shield-common" target="1.7" />
+      <module name="shield-config-client" target="1.7" />
+      <module name="shield-rpc-api" target="1.7" />
+      <module name="shield-rpc-config-server" target="1.7" />
+      <module name="shield-rpc-config-service" target="1.7" />
+      <module name="shop-admin-server" target="1.7" />
+      <module name="shop-portal-server" target="1.7" />
+      <module name="video-member" target="1.7" />
+      <module name="zheng" target="1.7" />
+      <module name="zheng-admin" target="1.7" />
+      <module name="zheng-api" target="1.7" />
+      <module name="zheng-api-common" target="1.7" />
+      <module name="zheng-api-rpc-api" target="1.7" />
+      <module name="zheng-api-rpc-service" target="1.7" />
+      <module name="zheng-api-server" target="1.7" />
+      <module name="zheng-cms" target="1.7" />
+      <module name="zheng-cms-admin" target="1.7" />
+      <module name="zheng-cms-common" target="1.7" />
+      <module name="zheng-cms-dao" target="1.7" />
+      <module name="zheng-cms-job" target="1.7" />
+      <module name="zheng-cms-rpc-api" target="1.7" />
+      <module name="zheng-cms-rpc-service" target="1.7" />
+      <module name="zheng-cms-search" target="1.7" />
+      <module name="zheng-cms-web" target="1.7" />
+      <module name="zheng-common" target="1.7" />
+      <module name="zheng-demo" target="1.7" />
+      <module name="zheng-demo-rpc-api" target="1.7" />
+      <module name="zheng-demo-rpc-service" target="1.7" />
+      <module name="zheng-demo-web" target="1.7" />
+      <module name="zheng-oss" target="1.7" />
+      <module name="zheng-oss-admin" target="1.7" />
+      <module name="zheng-oss-sdk" target="1.7" />
+      <module name="zheng-oss-web" target="1.7" />
+      <module name="zheng-pay" target="1.7" />
+      <module name="zheng-pay-admin" target="1.7" />
+      <module name="zheng-pay-common" target="1.7" />
+      <module name="zheng-pay-dao" target="1.7" />
+      <module name="zheng-pay-rpc-api" target="1.7" />
+      <module name="zheng-pay-rpc-service" target="1.7" />
+      <module name="zheng-pay-sdk" target="1.7" />
+      <module name="zheng-pay-web" target="1.7" />
+      <module name="zheng-shop" target="1.7" />
+      <module name="zheng-ucenter" target="1.7" />
+      <module name="zheng-ucenter-common" target="1.7" />
+      <module name="zheng-ucenter-dao" target="1.7" />
+      <module name="zheng-ucenter-rpc-api" target="1.7" />
+      <module name="zheng-ucenter-rpc-service" target="1.7" />
+      <module name="zheng-ucenter-web" target="1.7" />
+      <module name="zheng-upms" target="1.7" />
+      <module name="zheng-upms-client" target="1.7" />
+      <module name="zheng-upms-common" target="1.7" />
+      <module name="zheng-upms-dao" target="1.7" />
+      <module name="zheng-upms-rpc-api" target="1.7" />
+      <module name="zheng-upms-rpc-service" target="1.7" />
+      <module name="zheng-upms-server" target="1.7" />
+      <module name="zheng-wechat" target="1.7" />
+      <module name="zheng-wechat-app" target="1.7" />
+      <module name="zheng-wechat-mp" target="1.7" />
+      <module name="zheng-wechat-mp-admin" target="1.7" />
+      <module name="zheng-wechat-mp-dao" target="1.7" />
+      <module name="zheng-wechat-mp-service" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

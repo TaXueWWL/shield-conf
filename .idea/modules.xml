@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/dev-archetype.iml" filepath="$PROJECT_DIR$/dev-archetype.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gateway/gateway.iml" filepath="$PROJECT_DIR$/gateway/gateway.iml" />
+      <module fileurl="file://D:/interface-test-mock-tool/merchant-interface-test-tool-qa.iml" filepath="D:/interface-test-mock-tool/merchant-interface-test-tool-qa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shop-portal-server/portal-shop-server.iml" filepath="$PROJECT_DIR$/shop-portal-server/portal-shop-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rpc-goods-service/rpc-goods-service.iml" filepath="$PROJECT_DIR$/rpc-goods-service/rpc-goods-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rpc-user-service/rpc-user-service.iml" filepath="$PROJECT_DIR$/rpc-user-service/rpc-user-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shield-common/shield-common.iml" filepath="$PROJECT_DIR$/shield-common/shield-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shield-config-client/shield-config-client.iml" filepath="$PROJECT_DIR$/shield-config-client/shield-config-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shield-rpc-api/shield-rpc-api.iml" filepath="$PROJECT_DIR$/shield-rpc-api/shield-rpc-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shield-rpc-config-server/shield-rpc-config-server.iml" filepath="$PROJECT_DIR$/shield-rpc-config-server/shield-rpc-config-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shop-admin-server/shop-admin-server.iml" filepath="$PROJECT_DIR$/shop-admin-server/shop-admin-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../video-member-api/video-member.iml" filepath="$PROJECT_DIR$/../video-member-api/video-member.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng.iml" filepath="D:/workspace_snowalker/zheng/zheng.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-admin/zheng-admin.iml" filepath="D:/workspace_snowalker/zheng/zheng-admin/zheng-admin.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-api/zheng-api.iml" filepath="D:/workspace_snowalker/zheng/zheng-api/zheng-api.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-api/zheng-api-common/zheng-api-common.iml" filepath="D:/workspace_snowalker/zheng/zheng-api/zheng-api-common/zheng-api-common.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-api/zheng-api-rpc-api/zheng-api-rpc-api.iml" filepath="D:/workspace_snowalker/zheng/zheng-api/zheng-api-rpc-api/zheng-api-rpc-api.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-api/zheng-api-rpc-service/zheng-api-rpc-service.iml" filepath="D:/workspace_snowalker/zheng/zheng-api/zheng-api-rpc-service/zheng-api-rpc-service.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-api/zheng-api-server/zheng-api-server.iml" filepath="D:/workspace_snowalker/zheng/zheng-api/zheng-api-server/zheng-api-server.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-cms/zheng-cms.iml" filepath="D:/workspace_snowalker/zheng/zheng-cms/zheng-cms.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-cms/zheng-cms-admin/zheng-cms-admin.iml" filepath="D:/workspace_snowalker/zheng/zheng-cms/zheng-cms-admin/zheng-cms-admin.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-cms/zheng-cms-common/zheng-cms-common.iml" filepath="D:/workspace_snowalker/zheng/zheng-cms/zheng-cms-common/zheng-cms-common.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-cms/zheng-cms-dao/zheng-cms-dao.iml" filepath="D:/workspace_snowalker/zheng/zheng-cms/zheng-cms-dao/zheng-cms-dao.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-cms/zheng-cms-job/zheng-cms-job.iml" filepath="D:/workspace_snowalker/zheng/zheng-cms/zheng-cms-job/zheng-cms-job.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-cms/zheng-cms-rpc-api/zheng-cms-rpc-api.iml" filepath="D:/workspace_snowalker/zheng/zheng-cms/zheng-cms-rpc-api/zheng-cms-rpc-api.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-cms/zheng-cms-rpc-service/zheng-cms-rpc-service.iml" filepath="D:/workspace_snowalker/zheng/zheng-cms/zheng-cms-rpc-service/zheng-cms-rpc-service.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-cms/zheng-cms-search/zheng-cms-search.iml" filepath="D:/workspace_snowalker/zheng/zheng-cms/zheng-cms-search/zheng-cms-search.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-cms/zheng-cms-web/zheng-cms-web.iml" filepath="D:/workspace_snowalker/zheng/zheng-cms/zheng-cms-web/zheng-cms-web.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-common/zheng-common.iml" filepath="D:/workspace_snowalker/zheng/zheng-common/zheng-common.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-demo/zheng-demo.iml" filepath="D:/workspace_snowalker/zheng/zheng-demo/zheng-demo.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-demo/zheng-demo-rpc-api/zheng-demo-rpc-api.iml" filepath="D:/workspace_snowalker/zheng/zheng-demo/zheng-demo-rpc-api/zheng-demo-rpc-api.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-demo/zheng-demo-rpc-service/zheng-demo-rpc-service.iml" filepath="D:/workspace_snowalker/zheng/zheng-demo/zheng-demo-rpc-service/zheng-demo-rpc-service.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-demo/zheng-demo-web/zheng-demo-web.iml" filepath="D:/workspace_snowalker/zheng/zheng-demo/zheng-demo-web/zheng-demo-web.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-oss/zheng-oss.iml" filepath="D:/workspace_snowalker/zheng/zheng-oss/zheng-oss.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-oss/zheng-oss-admin/zheng-oss-admin.iml" filepath="D:/workspace_snowalker/zheng/zheng-oss/zheng-oss-admin/zheng-oss-admin.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-oss/zheng-oss-sdk/zheng-oss-sdk.iml" filepath="D:/workspace_snowalker/zheng/zheng-oss/zheng-oss-sdk/zheng-oss-sdk.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-oss/zheng-oss-web/zheng-oss-web.iml" filepath="D:/workspace_snowalker/zheng/zheng-oss/zheng-oss-web/zheng-oss-web.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-pay/zheng-pay.iml" filepath="D:/workspace_snowalker/zheng/zheng-pay/zheng-pay.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-pay/zheng-pay-admin/zheng-pay-admin.iml" filepath="D:/workspace_snowalker/zheng/zheng-pay/zheng-pay-admin/zheng-pay-admin.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-pay/zheng-pay-common/zheng-pay-common.iml" filepath="D:/workspace_snowalker/zheng/zheng-pay/zheng-pay-common/zheng-pay-common.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-pay/zheng-pay-dao/zheng-pay-dao.iml" filepath="D:/workspace_snowalker/zheng/zheng-pay/zheng-pay-dao/zheng-pay-dao.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-pay/zheng-pay-rpc-api/zheng-pay-rpc-api.iml" filepath="D:/workspace_snowalker/zheng/zheng-pay/zheng-pay-rpc-api/zheng-pay-rpc-api.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-pay/zheng-pay-rpc-service/zheng-pay-rpc-service.iml" filepath="D:/workspace_snowalker/zheng/zheng-pay/zheng-pay-rpc-service/zheng-pay-rpc-service.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-pay/zheng-pay-sdk/zheng-pay-sdk.iml" filepath="D:/workspace_snowalker/zheng/zheng-pay/zheng-pay-sdk/zheng-pay-sdk.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-pay/zheng-pay-web/zheng-pay-web.iml" filepath="D:/workspace_snowalker/zheng/zheng-pay/zheng-pay-web/zheng-pay-web.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-shop/zheng-shop.iml" filepath="D:/workspace_snowalker/zheng/zheng-shop/zheng-shop.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-ucenter/zheng-ucenter.iml" filepath="D:/workspace_snowalker/zheng/zheng-ucenter/zheng-ucenter.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-ucenter/zheng-ucenter-common/zheng-ucenter-common.iml" filepath="D:/workspace_snowalker/zheng/zheng-ucenter/zheng-ucenter-common/zheng-ucenter-common.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-ucenter/zheng-ucenter-dao/zheng-ucenter-dao.iml" filepath="D:/workspace_snowalker/zheng/zheng-ucenter/zheng-ucenter-dao/zheng-ucenter-dao.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-ucenter/zheng-ucenter-rpc-api/zheng-ucenter-rpc-api.iml" filepath="D:/workspace_snowalker/zheng/zheng-ucenter/zheng-ucenter-rpc-api/zheng-ucenter-rpc-api.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-ucenter/zheng-ucenter-rpc-service/zheng-ucenter-rpc-service.iml" filepath="D:/workspace_snowalker/zheng/zheng-ucenter/zheng-ucenter-rpc-service/zheng-ucenter-rpc-service.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-ucenter/zheng-ucenter-web/zheng-ucenter-web.iml" filepath="D:/workspace_snowalker/zheng/zheng-ucenter/zheng-ucenter-web/zheng-ucenter-web.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-upms/zheng-upms.iml" filepath="D:/workspace_snowalker/zheng/zheng-upms/zheng-upms.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-upms/zheng-upms-client/zheng-upms-client.iml" filepath="D:/workspace_snowalker/zheng/zheng-upms/zheng-upms-client/zheng-upms-client.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-upms/zheng-upms-common/zheng-upms-common.iml" filepath="D:/workspace_snowalker/zheng/zheng-upms/zheng-upms-common/zheng-upms-common.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-upms/zheng-upms-dao/zheng-upms-dao.iml" filepath="D:/workspace_snowalker/zheng/zheng-upms/zheng-upms-dao/zheng-upms-dao.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-upms/zheng-upms-rpc-api/zheng-upms-rpc-api.iml" filepath="D:/workspace_snowalker/zheng/zheng-upms/zheng-upms-rpc-api/zheng-upms-rpc-api.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-upms/zheng-upms-rpc-service/zheng-upms-rpc-service.iml" filepath="D:/workspace_snowalker/zheng/zheng-upms/zheng-upms-rpc-service/zheng-upms-rpc-service.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-upms/zheng-upms-server/zheng-upms-server.iml" filepath="D:/workspace_snowalker/zheng/zheng-upms/zheng-upms-server/zheng-upms-server.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-wechat/zheng-wechat.iml" filepath="D:/workspace_snowalker/zheng/zheng-wechat/zheng-wechat.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-wechat/zheng-wechat-app/zheng-wechat-app.iml" filepath="D:/workspace_snowalker/zheng/zheng-wechat/zheng-wechat-app/zheng-wechat-app.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-wechat/zheng-wechat-mp/zheng-wechat-mp.iml" filepath="D:/workspace_snowalker/zheng/zheng-wechat/zheng-wechat-mp/zheng-wechat-mp.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-wechat/zheng-wechat-mp/zheng-wechat-mp-admin/zheng-wechat-mp-admin.iml" filepath="D:/workspace_snowalker/zheng/zheng-wechat/zheng-wechat-mp/zheng-wechat-mp-admin/zheng-wechat-mp-admin.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-wechat/zheng-wechat-mp/zheng-wechat-mp-dao/zheng-wechat-mp-dao.iml" filepath="D:/workspace_snowalker/zheng/zheng-wechat/zheng-wechat-mp/zheng-wechat-mp-dao/zheng-wechat-mp-dao.iml" />
+      <module fileurl="file://D:/workspace_snowalker/zheng/zheng-wechat/zheng-wechat-mp/zheng-wechat-mp-service/zheng-wechat-mp-service.iml" filepath="D:/workspace_snowalker/zheng/zheng-wechat/zheng-wechat-mp/zheng-wechat-mp-service/zheng-wechat-mp-service.iml" />
+    </modules>
+  </component>
+</project>
