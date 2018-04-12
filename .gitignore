@@ -1,6 +1,6 @@
 # Compiled class file
 *.class
-
+*.iml
 # Log file
 *.log
 
@@ -12,6 +12,7 @@
 
 # Package Files #
 /target/
+/.idea/
 *.jar
 *.war
 *.ear
