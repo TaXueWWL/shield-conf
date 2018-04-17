@@ -29,8 +29,6 @@ public class ConfigController {
         ConfigCommandLineRunner.configExec.shutdown();
         if (ConfigCommandLineRunner.configExec.isShutdown()) {
             ConfigCommandLineRunner.configExec = Executors.newScheduledThreadPool(Integer.valueOf(pool_size));
-            // 定义配置更新观察者--根据key修改对应的value
-            Observer configObserver = new ConfigDirectUpdateObserver();
             // 定义配置更新被观察者
             ConfigSubject configSubject = new ConfigSubject
                     (ConfigCommandLineRunner.configExec,
@@ -38,7 +36,6 @@ public class ConfigController {
                             0,
                             Integer.valueOf(delay),
                             TimeUnit.SECONDS);
-            configSubject.addObserver(configObserver);
             configSubject.runExec();
 
             LOGGER.debug("新配置: pool_size={}, delay={}秒设置完毕，执行新的同步操作", pool_size, delay);
