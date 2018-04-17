@@ -61,3 +61,11 @@
               <version>1.0</version>
         </dependency>
 
+## 更新说明
+1. 新增单机版客户端配置，spring应用直接引入下方坐标
+
+		<dependency>
+            <artifactId>shield-config-client-single</artifactId>
+            <groupId>com.hispeed.development</groupId>
+            <version>1.0</version>
+        </dependency>
