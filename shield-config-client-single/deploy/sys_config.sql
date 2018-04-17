@@ -45,7 +45,6 @@ INSERT INTO `sys_config` VALUES ('5', 'name5', 'snowalker5666', null, null, 'sho
 INSERT INTO `sys_config` VALUES ('7', 'QINQIN', '海纳百川123', null, null, 'shop-portal-server', null, null, '0', 'administrator', '2018-04-09 10:35:25', '2018-04-09 10:35:25');
 INSERT INTO `sys_config` VALUES ('11', 'switch', 'close', null, null, 'common', null, null, '0', 'administrator', '2018-04-09 20:04:52', '2018-04-09 20:04:52');
 INSERT INTO `sys_config` VALUES ('12', 'name666', '123123', null, null, 'common', null, null, '0', 'administrator', '2018-04-17 18:26:21', '2018-04-17 18:26:21');
-INSERT INTO `sys_config` VALUES ('13', '武文良', '111111', null, null, 'common', null, null, '0', 'administrator', '2018-04-17 18:29:29', '2018-04-17 18:29:29');
 INSERT INTO `sys_config` VALUES ('14', 'DADDY', '你爸爸1231', null, null, 'common', null, null, '0', 'administrator', '2018-04-17 18:36:15', '2018-04-17 18:36:15');
 INSERT INTO `sys_config` VALUES ('15', 'mom123', '23333', null, null, 'common', null, null, '0', 'administrator', '2018-04-17 18:38:38', '2018-04-17 18:38:38');
 INSERT INTO `sys_config` VALUES ('16', '阿萨德撒旦撒大123', '阿萨德撒旦撒123123', null, null, 'common', null, null, '0', 'administrator', '2018-04-17 18:56:17', '2018-04-17 18:56:17');
