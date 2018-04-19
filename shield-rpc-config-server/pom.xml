@@ -49,6 +49,12 @@
             <version>1.0</version>
             <groupId>com.hispeed.development</groupId>
         </dependency>
+        <!--服务端自身使用单机版客户端加载配置-->
+        <dependency>
+            <artifactId>shield-config-client-single</artifactId>
+            <version>1.0</version>
+            <groupId>com.hispeed.development</groupId>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-redis -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

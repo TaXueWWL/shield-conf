@@ -15,8 +15,6 @@
     <packaging>jar</packaging>
 
     <name>shield-config-client-single</name>
-    <!-- FIXME change it to the project's website -->
-    <url>http://www.example.com</url>
 
     <properties>
         <dubbo-spring-boot>1.0.0</dubbo-spring-boot>
