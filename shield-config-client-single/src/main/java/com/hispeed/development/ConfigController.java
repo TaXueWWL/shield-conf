@@ -21,6 +21,11 @@ public class ConfigController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ConfigController.class);
 
+    /**
+     * @param request
+     * @param response
+     * @return pool-size=10&delay=5
+     */
     @RequestMapping(value = "execute", method = {RequestMethod.GET, RequestMethod.POST})
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         LOGGER.debug("ConfigSubject配置被观察者接口开始执行......");

@@ -98,6 +98,13 @@ public class FetchAllConfigSchedule {
         updateServerConfigIfRemoteNotExist(sysConfigs);
         LOGGER.debug("应用{}配置文件更新完毕, 发生变更的配置项列表为:{}", applicationName, stringBuffer.toString());
         // 获取完毕发送响应到服务端
+        sendCallbackToServer();
+    }
+
+    /**
+     * 获取完毕发送响应到服务端
+     */
+    private void sendCallbackToServer() {
         try {
             String url = serverUrl + "?clientInfo=" +
                     URLEncoder.encode(new PullCallbackProtocol().encode(
@@ -111,8 +118,6 @@ public class FetchAllConfigSchedule {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 
     /**
