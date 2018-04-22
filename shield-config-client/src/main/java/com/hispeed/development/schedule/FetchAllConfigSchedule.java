@@ -4,7 +4,9 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import com.google.common.base.Preconditions;
 import com.hispeed.development.cache.ConfigMap;
 import com.hispeed.development.config.IConfigService;
+import com.hispeed.development.domain.config.PullCallbackProtocol;
 import com.hispeed.development.domain.config.SysConfig;
+import com.hispeed.development.util.OkClient;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +15,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import java.io.UnsupportedEncodingException;
+import java.net.InetAddress;
+import java.net.URLEncoder;
+import java.net.UnknownHostException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -35,6 +43,9 @@ public class FetchAllConfigSchedule {
 
     @Value("${spring.application.name}")
     String applicationName;
+
+    @Value("${config.server.url}")
+    String serverUrl;
 
     @Reference(version = "1.0.0")
     IConfigService configService;
@@ -86,6 +97,22 @@ public class FetchAllConfigSchedule {
         // 迭代本地，对比远程，条件：当本地和远程该应用配置数量不一致时触发
         updateServerConfigIfRemoteNotExist(sysConfigs);
         LOGGER.debug("应用{}配置文件更新完毕, 发生变更的配置项列表为:{}", applicationName, stringBuffer.toString());
+        // 获取完毕发送响应到服务端
+        try {
+            String url = serverUrl + "?clientInfo=" +
+                    URLEncoder.encode(new PullCallbackProtocol().encode(
+                            InetAddress.getLocalHost().getHostAddress(),
+                            applicationName,
+                            new SimpleDateFormat("yyyy-MM-dd HH:mm:SS")
+                                    .format(Calendar.getInstance().getTimeInMillis())
+                    ), "UTF-8");
+            String result = OkClient.getInstance().sendGet(url);
+            LOGGER.debug("服务端返回信息:" + result);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     /**

@@ -1,9 +1,5 @@
 package com.hispeed.development.domain.config;
 
-import com.google.common.base.Preconditions;
-import org.apache.commons.codec.digest.DigestUtils;
-import org.apache.commons.lang3.StringUtils;
-
 import java.io.Serializable;
 
 /**

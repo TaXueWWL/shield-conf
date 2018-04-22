@@ -69,3 +69,6 @@
             <groupId>com.hispeed.development</groupId>
             <version>1.0</version>
         </dependency>
+2. 新增客户端响应，响应信息存在Redis中，响应信息
+
+        {"appName":"shop-portal-server","clientIp":"192.168.21.1","updateTime":"2018-04-23 00:02:18"}

@@ -1,5 +1,8 @@
 package com.hispeed.development.portal.api;
 
+import com.alibaba.fastjson.JSON;
+import com.hispeed.development.domain.config.PullCallbackProtocol;
+import com.hispeed.development.util.JedisClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +28,13 @@ public class PullCallbackController {
      * @return ACK表示接受客户端回调并处理完成
      */
     @RequestMapping(value = "pull/callback")
-    public String ackCallback(HttpServletRequest request, HttpServletResponse response) {
+    public String pullCallback(HttpServletRequest request, HttpServletResponse response) {
+        String clientInfo = request.getParameter("clientInfo");
+        PullCallbackProtocol protocol = JSON.parseObject(clientInfo, PullCallbackProtocol.class);
+        JedisClient jedisClient = JedisClient.getInstance();
+        jedisClient.setValue(protocol.getClientIp(), protocol.encode(protocol.getClientIp(),
+                protocol.getAppName(), protocol.getUpdateTime()));
+        LOGGER.info("客户端返回信息:" + jedisClient.getValue(protocol.getClientIp()));
         return "ACK";
     }
 }
