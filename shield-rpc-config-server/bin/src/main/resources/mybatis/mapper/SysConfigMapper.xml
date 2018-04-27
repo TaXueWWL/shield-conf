@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hispeed.development.mapper.SysConfigMapper" >
+
+    <!--根据工程名获取对应的全量配置信息-->
+    <select id="fetchAll" parameterType="java.util.Map"
+            resultType="com.hispeed.development.domain.config.SysConfig">
+        SELECT
+            t.CONFIG_ID configId,
+            t.CONFIG_KEY configKey,
+            t.CONFIG_VALUE configValue,
+            t.CONFIG_DESC configDesc,
+            t.CONFIG_SWITCH configSwitch,
+            t.OPT_USER optUser,
+            DATE_FORMAT(t.INSERT_TIME,'%Y-%m-%d %H:%i:%s') insertTime,
+            DATE_FORMAT(t.UPDATE_TIME,'%Y-%m-%d %H:%i:%s') updateTime
+        FROM
+            sys_config t
+        where t.PROJECT_NAME=#{projectName}
+            or t.PROJECT_NAME='common'
+            and t.CONFIG_SWITCH=0
+    </select>
+
+    <!--获取某个工程具体的某个值-->
+    <select id="get" parameterType="java.util.Map"
+            resultType="com.hispeed.development.domain.config.SysConfig">
+        SELECT
+        t.CONFIG_ID configId,
+        t.CONFIG_KEY configKey,
+        t.CONFIG_VALUE configValue,
+        t.CONFIG_DESC configDesc,
+        t.CONFIG_SWITCH configSwitch,
+        t.OPT_USER optUser,
+        DATE_FORMAT(t.INSERT_TIME,'%Y-%m-%d %H:%i:%s') insertTime,
+        DATE_FORMAT(t.UPDATE_TIME,'%Y-%m-%d %H:%i:%s') updateTime
+        FROM
+        sys_config t
+        where t.PROJECT_NAME=#{projectName}
+        and t.CONFIG_KEY=#{configKey}
+    </select>
+
+    <!--设置新的配置项-->
+    <insert id="set" parameterType="com.hispeed.development.domain.config.SysConfig">
+        INSERT INTO sys_config (
+                CONFIG_KEY,
+				CONFIG_VALUE,
+				CONFIG_DESC,
+				PROJECT_NAME
+        )
+        VALUES
+        (
+            #{configKey},
+            #{configValue},
+            #{configDesc},
+            #{projectName}
+        );
+    </insert>
+</mapper>
+
+
+
