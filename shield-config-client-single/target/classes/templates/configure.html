@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8" />
+		<title>Question-Board</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<style type="text/css">
+			/*选择大按钮*/
+			.btn-group-lg>.btn, .btn-lg {
+			    padding: 10px 16px;
+			    font-size: 18px;
+			    line-height: 2.333333;
+			    width: 58%;
+			    border-radius: 7px;
+			}
+			/*主要内容表格*/
+			.main-table {
+				margin-left:2%;
+				margin-left:2%;
+				width: 95%;
+			}
+			.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+				text-align: center
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+        	时间：2017-03-13
+        	描述：标题栏
+        -->
+		<div class="site-header" id="header">
+			<nav class="navbar navbar-default navbar-fixed-top">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					        <span class="sr-only">Toggle navigation</span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+				        </button>
+						<a class="navbar-brand header-brand" href="/">
+						</a>
+					</div>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li>
+								<a href="/configure.html"><b>shield-conf后台配置</b><span class="sr-only">(current)</span></a>
+							</li>
+							<li class="banner-divider"></li>
+							<li>
+								<a href="#"><span class="sr-only">(current)</span></a>
+							</li>
+							<li class="banner-divider"></li>
+							<li>
+								<a href="#"><font color="red"></font></a>
+							</li>
+						</ul>
+
+
+
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<form class="navbar-form navbar-left" role="search" action="search">
+									<div class="form-group">
+									</div>
+								</form>
+							</li>
+						</ul>
+					</div>
+					<!-- /.navbar-collapse -->
+				</div>
+				<!-- /.container-fluid -->
+			</nav>
+		</div>
+		
+		<br/><br/><br/><br/><br/>
+		
+		<div class="col-md-12 col-lg-12 col-xs-12 main-table">
+			<div class="table-responsive">
+				<form action="/configure.action" method="post">
+					<table class="table table-bordered">
+						<tr class="alert-info">
+							<td>
+								<div>参数名</div>
+							</td>
+							<td>
+								<div>参数值</div>
+							</td>
+							<td>
+								<div>具体操作</div>
+							</td>
+						</tr>
+
+						<tr>
+							<td colspan="3">
+								<div><font color='red'><div th:text="${return}"></div></font></div>
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								<div>
+									<div style="text-align: center">线程池大小</div>
+								</div>
+							</td>
+							<td>
+								<div>
+									<input class="form-control" required="required"  name="pool-size" placeholder="请输入线程池大小，默认为10"/>
+								</div>
+							</td>
+							<td rowspan="2">
+								<div style="text-align: center">
+									<input type="submit" class="btn btn-primary" value="提交" /><br/><hr/>
+									<input type="reset" class="btn btn-warning" value="重置" />
+								</div>
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								<div>
+									<div style="text-align: center">扫描间隔</div>
+								</div>
+							</td>
+							<td>
+								<div>
+									<input class="form-control" required="required"  name="delay" placeholder="请输入配置扫描延迟时间，默认为5秒"/>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</form>
+			</div>
+			<br/><br/><br/><br/>
+		</div>
+		
+		<!-- 问题新增modal -->
+		<div class="modal fade" id="addQuestion" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h3 class="modal-title" id="myModalLabel">
+						<center>问题新增</center>
+					</h3>
+				</div>
+				<form action="insert_question.action" method="post">
+					<div class="modal-body">
+						<table class="table table-bordered table-striped table-hover">
+							<tr>
+								<td width="80px">问题描述</td>
+								<td><input type="text" name="qbkTitle" class="form-control" maxlength="100" /></td>
+							</tr>
+							<tr>
+								<td>关键词(中文逗号分隔)</td>
+								<td><input type="text" name="qbkKey" class="form-control" maxlength="100" /></td>
+							</tr>
+							<tr>
+								<td>问题答案</td>
+								<td>
+									<textarea name="qbkAnswer" style="width:500px;height:400px;visibility:hidden;" class="form-control"></textarea>
+ 								</td>
+							</tr>
+							<tr>
+								<td>所属类别</td>
+								<td>
+									<select class="form-control" name="qbkType">
+									  <option value="0">第三方平台</option>
+									  <option value="1">高阳esales</option>
+									  <option value="2">19e-esales</option>
+									  <option value="3">其他</option>
+									</select>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div class="modal-footer">
+						<center>
+						<input type="submit" class="btn btn-primary" value="提交" />
+						<button type="button" class="btn btn-warning" data-dismiss="modal">关闭</button>
+						</center>
+					</div>
+				</form>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		</div>
+		<!-- /.modal -->
+		
+		
+		
+		<!--
+        	时间：2017-03-13
+        	描述：返回头部
+        -->
+		<div class="w-top">
+			<a href="#header"><i class="w-top-glyphicon glyphicon glyphicon-chevron-up"></i></a>
+		</div>
+		<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+			<footer>
+				<h4 class="footer-words">
+					<center>高阳捷迅©版权所有  2017</center>
+				</h4>
+			</footer>
+		</nav>
+		<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/eggs.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

@@ -1,6 +1,5 @@
 package com.hispeed.development;
 
-import com.alibaba.dubbo.rpc.RpcContext;
 import com.hispeed.development.domain.config.SysConfig;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.slf4j.Logger;
