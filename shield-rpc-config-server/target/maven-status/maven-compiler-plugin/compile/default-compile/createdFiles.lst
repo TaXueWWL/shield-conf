@@ -1,4 +1,7 @@
+com\hispeed\development\util\JedisClient.class
 com\hispeed\development\service\SysConfigServiceImpl.class
-com\hispeed\development\mapper\SysConfigMapper.class
 com\hispeed\development\App$MyTomcatConnectorCustomizer.class
+com\hispeed\development\portal\api\PullCallbackController.class
+com\hispeed\development\portal\web\PageController.class
+com\hispeed\development\mapper\SysConfigMapper.class
 com\hispeed\development\App.class
