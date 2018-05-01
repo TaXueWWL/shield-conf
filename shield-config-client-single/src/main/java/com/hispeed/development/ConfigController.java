@@ -5,8 +5,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,7 +26,7 @@ public class ConfigController {
      * @param response
      * @return pool-size=10&delay=5
      */
-    @RequestMapping(value = "configure", method = {RequestMethod.GET, RequestMethod.POST})
+    @RequestMapping(value = "execute", method = {RequestMethod.GET, RequestMethod.POST})
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         LOGGER.debug("ConfigSubject配置被观察者接口开始执行......");
         String pool_size = request.getParameter("pool-size") == null ? "10" : request.getParameter("pool-size");
@@ -59,4 +57,10 @@ public class ConfigController {
         return "configure";
     }
 
+
+    @RequestMapping(value = "configure", method = {RequestMethod.GET})
+    public String configure(HttpServletRequest request, HttpServletResponse response) {
+        LOGGER.debug("进入配置页面......");
+        return "configure";
+    }
 }

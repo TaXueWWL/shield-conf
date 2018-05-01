@@ -60,5 +60,4 @@ class ConfigRepository {
         return sysConfigMap;
     }
 
-
 }

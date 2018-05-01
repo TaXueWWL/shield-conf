@@ -1,8 +1,3 @@
-com\hispeed\development\IConfigPullHandler.class
-com\hispeed\development\Observer.class
-com\hispeed\development\Observable.class
-com\hispeed\development\SpringConfigTool.class
-com\hispeed\development\ConfigCommandLineRunner.class
 com\hispeed\development\ConfigSubject$1.class
 com\hispeed\development\SQL.class
 com\hispeed\development\ConfigDirectUpdateObserver.class
@@ -12,4 +7,9 @@ com\hispeed\development\ConfigRepository.class
 com\hispeed\development\Config.class
 com\hispeed\development\ConfigHolder.class
 com\hispeed\development\ConfigRepository$1.class
+com\hispeed\development\IConfigPullHandler.class
+com\hispeed\development\Observer.class
+com\hispeed\development\Observable.class
+com\hispeed\development\SpringConfigTool.class
+com\hispeed\development\ConfigCommandLineRunner.class
 com\hispeed\development\ConfigMD5UpdateObserver.class

@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.util.Map;
@@ -15,8 +16,10 @@ import java.util.concurrent.ConcurrentHashMap;
  * @date 2018-4-17
  * @desc 配置项持有者
  */
-@Component
+@Service
 class ConfigHolder {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(ConfigHolder.class);
 
     private static Map<String, SysConfig> config;
 
