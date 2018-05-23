@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -61,7 +62,7 @@ public class ConfigController {
             e.printStackTrace();
         }
         request.setAttribute("return", "默认线程池尚未完全关闭，请稍等然后重试");
-        return "configure";
+        return "redirect:/configure.html";
     }
 
 
@@ -88,6 +89,28 @@ public class ConfigController {
         }
         request.setAttribute("sysConfigs", sysConfigs);
         return "configure";
+    }
+
+    @RequestMapping(value = "/api/config/disable-config", method = {RequestMethod.GET})
+    public String disableConfigAction(@RequestParam(value = "config-id", defaultValue = "0") Integer configId,
+                                      HttpServletResponse response) {
+        LOGGER.debug("进入配置禁用action，要禁用的配置config-id={}", configId);
+        if (configRepository.disableConfig(configId)) {
+            return "redirect:/configure.html";
+        }
+        response.setStatus(500);
+        return "redirect:/error.html";
+    }
+
+    @RequestMapping(value = "/api/config/enable-config", method = {RequestMethod.GET})
+    public String enableConfig(@RequestParam(value = "config-id", defaultValue = "0") Integer configId,
+                                      HttpServletResponse response) {
+        LOGGER.debug("进入配置启用action，启用的配置config-id={}", configId);
+        if (configRepository.enableConfig(configId)) {
+            return "redirect:/configure.html";
+        }
+        response.setStatus(500);
+        return "redirect:/error.html";
     }
 
 }

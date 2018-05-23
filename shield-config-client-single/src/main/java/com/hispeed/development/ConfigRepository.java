@@ -66,7 +66,7 @@ class ConfigRepository {
      * @return
      */
     public List<SysConfig> getAllConfigs() {
-        String sql = SQL.SQL_GET_ALL_CONFIGS;
+        String sql = SQL.SQL_FETCH_ALL_CONFIGS;
         final List<SysConfig> sysConfigs = new CopyOnWriteArrayList<>();
         jdbcTemplate.query(sql, new RowCallbackHandler() {
             @Override

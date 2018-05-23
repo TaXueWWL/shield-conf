@@ -28,7 +28,6 @@ public class App {
         ConfigurableApplicationContext configurableApplicationContext =
                 SpringApplication.run(App.class, args);
         LOGGER.info("shop-portal-server启动完成......");
-        LOGGER.debug(Config.get("name3"));
 //        for (String str : ConfigHolder.getConfig().keySet()) {
 //            System.out.println("key=" + str + ",value=" + Config.get(str));
 //        }

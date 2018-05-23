@@ -156,89 +156,91 @@
 -->
 <div class="col-md-12 col-lg-12 col-xs-12 main-table">
     <div class="table-responsive">
-        <form action="/execute.action" method="post">
-            <table class="table table-bordered">
-                <tr class="alert-info">
-                    <td>
-                        <div>配置键key</div>
-                    </td>
-                    <td>
-                        <div>配置值value</div>
-                    </td>
-                    <td>
-                        <div>配置描述</div>
-                    </td>
-                    <td>
-                        <div>项目名称</div>
-                    </td>
-                    <td>
-                        <div>启用标志</div>
-                    </td>
-                    <td>
-                        <div>操作者</div>
-                    </td>
-                    <td>
-                        <div>入库时间</div>
-                    </td>
-                    <td>
-                        <div>修改时间</div>
-                    </td>
-                    <td>
-                        <div>操作</div>
-                    </td>
-                </tr>
+        <table class="table table-bordered">
+            <tr class="alert-info">
+                <td>
+                    <div>配置键key</div>
+                </td>
+                <td>
+                    <div>配置值value</div>
+                </td>
+                <td>
+                    <div>配置描述</div>
+                </td>
+                <td>
+                    <div>项目名称</div>
+                </td>
+                <td>
+                    <div>启用标志</div>
+                </td>
+                <td>
+                    <div>操作者</div>
+                </td>
+                <td>
+                    <div>入库时间</div>
+                </td>
+                <td>
+                    <div>修改时间</div>
+                </td>
+                <td>
+                    <div>操作</div>
+                </td>
+            </tr>
 
-                <tr th:each="sysConfig : ${sysConfigs}">
-                    <td>
-                        <div>
-                            <div th:text="${sysConfig.configKey}"></div>
-                        </div>
-                    </td>
-                    <td>
-                        <div>
-                            <div th:text="${sysConfig.configValue}"></div>
-                        </div>
-                    </td>
-                    <td>
-                        <div>
-                            <div th:text="${sysConfig.configDesc}"></div>
-                        </div>
-                    </td>
-                    <td>
-                        <div>
-                            <div th:text="${sysConfig.projectName}"></div>
-                        </div>
-                    </td>
-                    <td>
-                        <div>
-                            <div th:text="${sysConfig.configSwitchDesc}"></div>
-                        </div>
-                    </td>
-                    <td>
-                        <div>
-                            <div th:text="${sysConfig.optUser}"></div>
-                        </div>
-                    </td>
-                    <td>
-                        <div>
-                            <div th:text="${sysConfig.insertTime}"></div>
-                        </div>
-                    </td>
-                    <td>
-                        <div>
-                            <div th:text="${sysConfig.updateTime}"></div>
-                        </div>
-                    </td>
-                    <td>
-                        <div style="text-align: center">
-                            <input type="submit" class="btn btn-danger" value="禁用"/>&nbsp;&nbsp;
-                            <input type="reset" class="btn btn-primary" value="启用"/>&nbsp;&nbsp;
-                            <input type="reset" class="btn btn-warning" value="修改"/>&nbsp;&nbsp;
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </form>
+            <tr th:each="sysConfig : ${sysConfigs}">
+                <td>
+                    <div>
+                        <div th:text="${sysConfig.configKey}"></div>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <div th:text="${sysConfig.configValue}"></div>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <div th:text="${sysConfig.configDesc}"></div>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <div th:text="${sysConfig.projectName}"></div>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <div th:text="${sysConfig.configSwitchDesc}"></div>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <div th:text="${sysConfig.optUser}"></div>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <div th:text="${sysConfig.insertTime}"></div>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <div th:text="${sysConfig.updateTime}"></div>
+                    </div>
+                </td>
+                <td>
+                    <div style="text-align: center">
+                        <a th:href="'/api/config/disable-config.action?config-id=' + ${sysConfig.configId}">
+                            <button class="btn btn-danger">禁用</button>
+                        </a>&nbsp;&nbsp;
+                        <a th:href="'/api/config/enable-config.action?config-id=' + ${sysConfig.configId}">
+                            <button class="btn btn-primary">启用</button>
+                        </a>&nbsp;&nbsp;
+                        <button class="btn btn-warning">修改</button>&nbsp;&nbsp;
+                    </div>
+                </td>
+            </tr>
+        </table>
     </div>
     <br/><br/><br/><br/>
 </div>
