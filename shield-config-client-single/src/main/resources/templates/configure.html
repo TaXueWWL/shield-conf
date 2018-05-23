@@ -210,7 +210,16 @@
                 </td>
                 <td>
                     <div>
-                        <div th:text="${sysConfig.configSwitchDesc}"></div>
+                        <div th:if="${sysConfig.configSwitchDesc} eq '启用'">
+                            <font color="#1e90ff">
+                                <div th:text="${sysConfig.configSwitchDesc}"></div>
+                            </font>
+                        </div>
+                        <div th:if="${sysConfig.configSwitchDesc} eq '禁用'">
+                            <font color="red">
+                                <div th:text="${sysConfig.configSwitchDesc}"></div>
+                            </font>
+                        </div>
                     </div>
                 </td>
                 <td>
