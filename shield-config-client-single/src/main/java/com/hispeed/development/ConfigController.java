@@ -1,13 +1,17 @@
 package com.hispeed.development;
 
+import com.hispeed.development.domain.config.SysConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
@@ -21,6 +25,9 @@ public class ConfigController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ConfigController.class);
 
+
+    @Autowired
+    ConfigRepository configRepository;
     /**
      * @param request
      * @param response
@@ -58,9 +65,22 @@ public class ConfigController {
     }
 
 
+    /**
+     * 页面路由
+     * @param request
+     * @param response
+     * @return
+     */
     @RequestMapping(value = "configure", method = {RequestMethod.GET})
     public String configure(HttpServletRequest request, HttpServletResponse response) {
         LOGGER.debug("进入配置页面......");
+        /**加载所有配置项*/
+        List<SysConfig> sysConfigs = configRepository.getAllConfigs();
+        if (sysConfigs == null) {
+            sysConfigs = new CopyOnWriteArrayList<>();
+        }
+        request.setAttribute("sysConfigs", sysConfigs);
         return "configure";
     }
+
 }
