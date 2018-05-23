@@ -25,6 +25,16 @@ public class SysConfig implements Serializable {
     private String insertTime;
     private String updateTime;
     private String md5Value;                    // md5值，用于版本控制
+    private String configSwitchDesc;            // 配置标记描述
+
+    public String getConfigSwitchDesc() {
+        return configSwitchDesc;
+    }
+
+    public SysConfig setConfigSwitchDesc(String configSwitchDesc) {
+        this.configSwitchDesc = configSwitchDesc;
+        return this;
+    }
 
     public SysConfig setMd5Value(String md5Value) {
         this.md5Value = md5Value;

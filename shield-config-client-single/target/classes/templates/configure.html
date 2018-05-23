@@ -1,161 +1,263 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<meta charset="utf-8" />
-		<title>Shield-conf-single-admin</title>
-		<link rel="stylesheet" type="text/css" href="css/configure/bootstrap-theme.css" />
-		<link rel="stylesheet" type="text/css" href="css/configure/bootstrap.min.css" />
-		<link rel="stylesheet" type="text/css" href="css/configure/common.css"/>
-		<style type="text/css">
-			/*选择大按钮*/
-			.btn-group-lg>.btn, .btn-lg {
-			    padding: 10px 16px;
-			    font-size: 18px;
-			    line-height: 2.333333;
-			    width: 58%;
-			    border-radius: 7px;
-			}
-			/*主要内容表格*/
-			.main-table {
-				margin-left:2%;
-				margin-left:2%;
-				width: 95%;
-			}
-			.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
-				text-align: center
-			}
-		</style>
-	</head>
-	<body>
-		<!--
-        	时间：2017-03-13
-        	描述：标题栏
-        -->
-		<div class="site-header" id="header">
-			<nav class="navbar navbar-default navbar-fixed-top">
-				<div class="container-fluid">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-					        <span class="sr-only">Toggle navigation</span>
-					        <span class="icon-bar"></span>
-					        <span class="icon-bar"></span>
-					        <span class="icon-bar"></span>
-				        </button>
-						<a class="navbar-brand header-brand" href="/">
-						</a>
-					</div>
+<head>
+    <meta charset="utf-8"/>
+    <title>Shield-conf-single-admin</title>
+    <link rel="stylesheet" type="text/css" href="css/configure/bootstrap-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="css/configure/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/configure/common.css"/>
+    <style type="text/css">
+        /*选择大按钮*/
+        .btn-group-lg > .btn, .btn-lg {
+            padding: 10px 16px;
+            font-size: 18px;
+            line-height: 2.333333;
+            width: 58%;
+            border-radius: 7px;
+        }
 
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-						<ul class="nav navbar-nav">
-							<li>
-								<a href="/configure.html"><b>shield-conf后台配置</b><span class="sr-only">(current)</span></a>
-							</li>
-							<li class="banner-divider"></li>
-							<li>
-								<a href="#"><span class="sr-only">(current)</span></a>
-							</li>
-							<li class="banner-divider"></li>
-							<li>
-								<a href="#"><font color="red"></font></a>
-							</li>
-						</ul>
+        /*主要内容表格*/
+        .main-table {
+            margin-left: 2%;
+            margin-left: 2%;
+            width: 95%;
+        }
+
+        .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+            text-align: center
+        }
+    </style>
+</head>
+<body>
+<!--
+    时间：2017-03-13
+    描述：标题栏
+-->
+<div class="site-header" id="header">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand header-brand" href="/">
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/configure.html"><b>shield-conf后台配置</b><span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="banner-divider"></li>
+                    <li>
+                        <a href="#"><span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="banner-divider"></li>
+                    <li>
+                        <a href="#"><font color="red"></font></a>
+                    </li>
+                </ul>
 
 
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target=""><b>新增</b></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+</div>
 
-						<ul class="nav navbar-nav navbar-right">
-							<li>
-								<form class="navbar-form navbar-left" role="search" action="search">
-									<div class="form-group">
-									</div>
-								</form>
-							</li>
-						</ul>
-					</div>
-					<!-- /.navbar-collapse -->
-				</div>
-				<!-- /.container-fluid -->
-			</nav>
-		</div>
-		
-		<br/><br/><br/><br/><br/>
-		
-		<div class="col-md-12 col-lg-12 col-xs-12 main-table">
-			<div class="table-responsive">
-				<form action="/execute.action" method="post">
-					<table class="table table-bordered">
-						<tr class="alert-info">
-							<td>
-								<div>参数名</div>
-							</td>
-							<td>
-								<div>参数值</div>
-							</td>
-							<td>
-								<div>具体操作</div>
-							</td>
-						</tr>
+<br/><br/><br/><br/><br/>
 
-						<tr>
-							<td colspan="3">
-								<div><font color='red'><div th:text="${return}"></div></font></div>
-							</td>
-						</tr>
+<div class="col-md-12 col-lg-12 col-xs-12 main-table">
+    <div class="table-responsive">
+        <form action="/execute.action" method="post">
+            <table class="table table-bordered">
+                <tr class="alert-info">
+                    <td>
+                        <div>参数名</div>
+                    </td>
+                    <td>
+                        <div>参数值</div>
+                    </td>
+                    <td>
+                        <div>具体操作</div>
+                    </td>
+                </tr>
 
-						<tr>
-							<td>
-								<div>
-									<div style="text-align: center">线程池大小</div>
-								</div>
-							</td>
-							<td>
-								<div>
-									<input class="form-control" required="required"  name="pool-size" placeholder="请输入线程池大小，默认为10"/>
-								</div>
-							</td>
-							<td rowspan="2">
-								<div style="text-align: center">
-									<input type="submit" class="btn btn-primary" value="提交" /><br/><hr/>
-									<input type="reset" class="btn btn-warning" value="重置" />
-								</div>
-							</td>
-						</tr>
+                <tr>
+                    <td colspan="3">
+                        <div><font color='red'>
+                            <div th:text="${return}"></div>
+                        </font></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <div>
+                            <div style="text-align: center"><b>线程池及配置刷新频率配置</b></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <div style="text-align: center">线程池大小</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <input class="form-control" required="required" name="pool-size"
+                                   placeholder="请输入线程池大小，默认为10"/>
+                        </div>
+                    </td>
+                    <td rowspan="2">
+                        <div style="text-align: center">
+                            <input type="submit" class="btn btn-primary" value="提交"/><br/>
+                            <hr/>
+                            <input type="reset" class="btn btn-warning" value="重置"/>
+                        </div>
+                    </td>
+                </tr>
 
-						<tr>
-							<td>
-								<div>
-									<div style="text-align: center">扫描间隔</div>
-								</div>
-							</td>
-							<td>
-								<div>
-									<input class="form-control" required="required"  name="delay" placeholder="请输入配置扫描延迟时间，默认为5秒"/>
-								</div>
-							</td>
-						</tr>
-					</table>
-				</form>
-			</div>
-			<br/><br/><br/><br/>
-		</div>
+                <tr>
+                    <td>
+                        <div>
+                            <div style="text-align: center">扫描间隔</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <input class="form-control" required="required" name="delay"
+                                   placeholder="请输入配置扫描延迟时间，默认为5秒"/>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <br/><br/>
+</div>
 
-		<!--
-        	时间：2017-03-13
-        	描述：返回头部
-        -->
-		<div class="w-top">
-			<a href="#header"><i class="w-top-glyphicon glyphicon glyphicon-chevron-up"></i></a>
-		</div>
-		<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
-			<footer>
-				<h4 class="footer-words">
-					<center>高阳捷迅©版权所有  2017</center>
-				</h4>
-			</footer>
-		</nav>
-		<script src="js/configure/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/configure/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/configure/eggs.js" type="text/javascript" charset="utf-8"></script>
-	</body>
+<!--
+    时间：2018-05-23
+    描述：配置列表查询
+-->
+<div class="col-md-12 col-lg-12 col-xs-12 main-table">
+    <div class="table-responsive">
+        <form action="/execute.action" method="post">
+            <table class="table table-bordered">
+                <tr class="alert-info">
+                    <td>
+                        <div>配置键key</div>
+                    </td>
+                    <td>
+                        <div>配置值value</div>
+                    </td>
+                    <td>
+                        <div>配置描述</div>
+                    </td>
+                    <td>
+                        <div>项目名称</div>
+                    </td>
+                    <td>
+                        <div>启用标志</div>
+                    </td>
+                    <td>
+                        <div>操作者</div>
+                    </td>
+                    <td>
+                        <div>入库时间</div>
+                    </td>
+                    <td>
+                        <div>修改时间</div>
+                    </td>
+                    <td>
+                        <div>操作</div>
+                    </td>
+                </tr>
+
+                <tr th:each="sysConfig : ${sysConfigs}">
+                    <td>
+                        <div>
+                            <div th:text="${sysConfig.configKey}"></div>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <div th:text="${sysConfig.configValue}"></div>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <div th:text="${sysConfig.configDesc}"></div>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <div th:text="${sysConfig.projectName}"></div>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <div th:text="${sysConfig.configSwitchDesc}"></div>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <div th:text="${sysConfig.optUser}"></div>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <div th:text="${sysConfig.insertTime}"></div>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <div th:text="${sysConfig.updateTime}"></div>
+                        </div>
+                    </td>
+                    <td>
+                        <div style="text-align: center">
+                            <input type="submit" class="btn btn-danger" value="禁用"/>&nbsp;&nbsp;
+                            <input type="reset" class="btn btn-primary" value="启用"/>&nbsp;&nbsp;
+                            <input type="reset" class="btn btn-warning" value="修改"/>&nbsp;&nbsp;
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <br/><br/><br/><br/>
+</div>
+<!--
+    时间：2017-05-23
+    描述：返回头部
+-->
+<div class="w-top">
+    <a href="#header"><i class="w-top-glyphicon glyphicon glyphicon-chevron-up"></i></a>
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+    <footer>
+        <h4 class="footer-words">
+            <center>高阳捷迅©版权所有 2017</center>
+        </h4>
+    </footer>
+</nav>
+<script src="js/configure/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/configure/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/configure/eggs.js" type="text/javascript" charset="utf-8"></script>
+</body>
 </html>

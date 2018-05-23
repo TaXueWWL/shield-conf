@@ -79,6 +79,13 @@ public class ConfigController {
         if (sysConfigs == null) {
             sysConfigs = new CopyOnWriteArrayList<>();
         }
+        for (SysConfig sysConfig : sysConfigs) {
+            if (sysConfig.getConfigSwitch().intValue() == 0) {
+                sysConfig.setConfigSwitchDesc("启用");
+            } else {
+                sysConfig.setConfigSwitchDesc("禁用");
+            }
+        }
         request.setAttribute("sysConfigs", sysConfigs);
         return "configure";
     }

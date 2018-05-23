@@ -79,7 +79,8 @@ class ConfigRepository {
                         .setProjectName(rs.getString("projectName"))
                         .setOptUser(rs.getString("optUser"))
                         .setInsertTime(rs.getString("insertTime"))
-                        .setUpdateTime(rs.getString("updateTime"));
+                        .setUpdateTime(rs.getString("updateTime"))
+                        .setConfigSwitch(rs.getInt("configSwitch"));
                 sysConfigs.add(sysConfig);
             }
         });
