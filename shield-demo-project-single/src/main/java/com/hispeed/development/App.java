@@ -28,10 +28,9 @@ public class App {
         ConfigurableApplicationContext configurableApplicationContext =
                 SpringApplication.run(App.class, args);
         LOGGER.info("shop-portal-server启动完成......");
-//        for (String str : ConfigHolder.getConfig().keySet()) {
-//            System.out.println("key=" + str + ",value=" + Config.get(str));
-//        }
-//        System.out.println(configRepository.getAllConfigs().size());
+        for (String str : ConfigHolder.getConfig().keySet()) {
+            System.out.println("key=" + str + ",value=" + Config.get(str));
+        }
         ConfigRepository configRepository =
                 (ConfigRepository)configurableApplicationContext.getBean("configRepository");
         SysConfig sysConfig = new SysConfig().setConfigKey("app-name")

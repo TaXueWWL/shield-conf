@@ -1,6 +1,7 @@
 package com.hispeed.development;
 
 import com.hispeed.development.domain.config.SysConfig;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,7 @@ public class ConfigController {
     @Autowired
     ConfigRepository configRepository;
     /**
+     * 设置刷新频率及线程池大小
      * @param request
      * @param response
      * @return pool-size=10&delay=5
@@ -67,7 +69,7 @@ public class ConfigController {
 
 
     /**
-     * 页面路由
+     * 配置页面路由
      * @param request
      * @param response
      * @return
@@ -91,6 +93,12 @@ public class ConfigController {
         return "configure";
     }
 
+    /**
+     * 禁用配置
+     * @param configId
+     * @param response
+     * @return
+     */
     @RequestMapping(value = "/api/config/disable-config", method = {RequestMethod.GET})
     public String disableConfigAction(@RequestParam(value = "config-id", defaultValue = "0") Integer configId,
                                       HttpServletResponse response) {
@@ -102,11 +110,41 @@ public class ConfigController {
         return "redirect:/error.html";
     }
 
+    /**
+     * 启用配置
+     * @param configId
+     * @param response
+     * @return
+     */
     @RequestMapping(value = "/api/config/enable-config", method = {RequestMethod.GET})
     public String enableConfig(@RequestParam(value = "config-id", defaultValue = "0") Integer configId,
                                       HttpServletResponse response) {
         LOGGER.debug("进入配置启用action，启用的配置config-id={}", configId);
         if (configRepository.enableConfig(configId)) {
+            return "redirect:/configure.html";
+        }
+        response.setStatus(500);
+        return "redirect:/error.html";
+    }
+
+    @RequestMapping(value = "api/config/add-new-config", method = {RequestMethod.POST})
+    public String addNewConfig(HttpServletRequest request, HttpServletResponse response) {
+
+        LOGGER.info("进入配置项新增action,sessionId=" + request.getSession().getId());
+        String configKey = request.getParameter("configKey");
+        String configValue = request.getParameter("configValue");
+        String configDesc = request.getParameter("configDesc");
+        String optUser = request.getParameter("configOptUser");
+        String projectName = request.getParameter("projectName");
+        if (StringUtils.isEmpty(configKey) || StringUtils.isEmpty(configValue)
+                || StringUtils.isEmpty(configDesc) || StringUtils.isEmpty(optUser) || StringUtils.isEmpty(projectName)) {
+            return "redirect:/error.html";
+        }
+        /**调用数据库操作进行新配置持久化*/
+        SysConfig config = new SysConfig();
+        config.setConfigKey(configKey).setConfigValue(configValue).setConfigDesc(configDesc).setOptUser(optUser).setProjectName(projectName);
+        if (configRepository.addOneSysConfig(config)) {
+            LOGGER.info("配置项添加成功,sessionId={},配置内容={}", request.getSession().getId(), config.toString());
             return "redirect:/configure.html";
         }
         response.setStatus(500);

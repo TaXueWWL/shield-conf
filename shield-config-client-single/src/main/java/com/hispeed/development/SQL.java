@@ -38,12 +38,12 @@ class SQL {
             "  DATE_FORMAT(t.INSERT_TIME,'%Y-%m-%d %H:%i:%s') insertTime,\n" +
             "  DATE_FORMAT(t.UPDATE_TIME,'%Y-%m-%d %H:%i:%s') updateTime\n" +
             " FROM\n" +
-            "  sys_config t";
+            "  sys_config t order by t.CONFIG_ID desc";
 
     /**
      * 新增配置
      */
-    static String INSERT_NEW_SYSCONFIG = "INSERT INTO sys_config(CONFIG_KEY,CONFIG_VALUE,CONFIG_DESC,OPT_USER) VALUES (?,?,?,?)";
+    static String INSERT_NEW_SYSCONFIG = "INSERT INTO sys_config(CONFIG_KEY,CONFIG_VALUE,CONFIG_DESC,OPT_USER,PROJECT_NAME) VALUES (?,?,?,?,?)";
 
     /**
      * 启用配置项

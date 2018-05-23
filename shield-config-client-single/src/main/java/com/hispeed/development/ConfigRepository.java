@@ -98,7 +98,8 @@ class ConfigRepository {
                 sysConfig.getConfigKey(),
                 sysConfig.getConfigValue(),
                 sysConfig.getConfigDesc(),
-                sysConfig.getOptUser()
+                sysConfig.getOptUser(),
+                sysConfig.getProjectName()
         });
         if (count == 1) {
             return true;
@@ -143,6 +144,9 @@ class ConfigRepository {
         String sql = SQL.UPDATE_CONFIG;
         if (StringUtils.isEmpty(sysConfig.getOptUser())) {
             sysConfig.setOptUser("administrator");
+        }
+        if (StringUtils.isEmpty(sysConfig.getProjectName())) {
+            sysConfig.setProjectName("common");
         }
         int count = jdbcTemplate.update(sql,
                 new Object[] {
