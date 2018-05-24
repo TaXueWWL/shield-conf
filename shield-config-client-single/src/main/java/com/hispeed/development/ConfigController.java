@@ -75,7 +75,7 @@ public class ConfigController {
      * @param response
      * @return
      */
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+//    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @RequestMapping(value = "configure", method = {RequestMethod.GET})
     public String configure(HttpServletRequest request, HttpServletResponse response) {
         LOGGER.debug("进入配置页面......");
@@ -101,7 +101,7 @@ public class ConfigController {
      * @param response
      * @return
      */
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+//    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @RequestMapping(value = "update-sysconfig", method = {RequestMethod.GET})
     public String updateConfigPage(HttpServletRequest request, HttpServletResponse response,
                                    @RequestParam(value = "config-id", defaultValue = "0") String configfId) {
@@ -213,4 +213,5 @@ public class ConfigController {
     public String to401Page() {
         return "401";
     }
+
 }

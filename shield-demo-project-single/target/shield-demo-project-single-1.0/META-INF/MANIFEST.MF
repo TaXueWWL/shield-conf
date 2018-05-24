@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Implementation-Title: shield-demo-project-single
+Implementation-Version: 1.0
+Archiver-Version: Plexus Archiver
+Built-By: snowalker
+Implementation-Vendor-Id: com.hispeed.development
+Spring-Boot-Version: 1.5.3.RELEASE
+Implementation-Vendor: Pivotal Software, Inc.
+Main-Class: org.springframework.boot.loader.JarLauncher
+Start-Class: com.hispeed.development.App
+Spring-Boot-Classes: BOOT-INF/classes/
+Spring-Boot-Lib: BOOT-INF/lib/
+Created-By: Apache Maven 3.3.9
+Build-Jdk: 1.8.0_91
+Implementation-URL: http://maven.apache.org
+

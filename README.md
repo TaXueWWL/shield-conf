@@ -72,6 +72,23 @@
 2. 新增客户端响应，响应信息存在Redis中，响应信息
 
         {"appName":"shop-portal-server","clientIp":"192.168.21.1","updateTime":"2018-04-23 00:02:18"}
+
 3. 新增单机版管理功能，开发中，增加配置查询、新增、修改、配置项激活、禁用功能。下阶段计划增加账户体系，保证配置安全
 
         单机版配置页面url：ip:port/configure.html
+        
+4. 当前配置页面使用了springboot-security自带的basic认证，账号为user，密码为启动日志中的随机指令，格式如下
+
+        Using default security password: 9073654f-abbb-4597-aaf3-09ab37acbbdd
+    
+也可以自定义账号密码，只需要在你的application.properties中添加如下配置
+
+        security.user.name=admin
+        security.user.password=123456
+
+或者直接关闭这个默认的basic认证
+
+        security.basic.enabled=false
+   
+        
+   
