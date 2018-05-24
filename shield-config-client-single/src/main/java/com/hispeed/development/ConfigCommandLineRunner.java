@@ -24,7 +24,7 @@ public class ConfigCommandLineRunner implements CommandLineRunner {
         // 新建线程池
         configExec = Executors.newScheduledThreadPool(10);
         // 定义配置更新被观察者
-        ConfigSubject configSubject = new ConfigSubject(configExec, 30, 0, 50, TimeUnit.SECONDS);
+        ConfigSubject configSubject = new ConfigSubject(configExec, 30, 0, 10, TimeUnit.SECONDS);
         configSubject.runExec();
     }
 

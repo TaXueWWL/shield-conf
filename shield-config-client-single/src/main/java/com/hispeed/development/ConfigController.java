@@ -5,6 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -74,6 +75,7 @@ public class ConfigController {
      * @param response
      * @return
      */
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @RequestMapping(value = "configure", method = {RequestMethod.GET})
     public String configure(HttpServletRequest request, HttpServletResponse response) {
         LOGGER.debug("进入配置页面......");
@@ -99,6 +101,7 @@ public class ConfigController {
      * @param response
      * @return
      */
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @RequestMapping(value = "update-sysconfig", method = {RequestMethod.GET})
     public String updateConfigPage(HttpServletRequest request, HttpServletResponse response,
                                    @RequestParam(value = "config-id", defaultValue = "0") String configfId) {
@@ -204,5 +207,10 @@ public class ConfigController {
         }
         response.setStatus(500);
         return "redirect:/error.html";
+    }
+
+    @RequestMapping(value = "401", method = {RequestMethod.GET})
+    public String to401Page() {
+        return "401";
     }
 }
