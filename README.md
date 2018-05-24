@@ -73,3 +73,5 @@
 
         {"appName":"shop-portal-server","clientIp":"192.168.21.1","updateTime":"2018-04-23 00:02:18"}
 3. 新增单机版管理功能，开发中，增加配置查询、新增、修改、配置项激活、禁用功能。下阶段计划增加账户体系，保证配置安全
+
+        单机版配置页面url：ip:port/configure.html
