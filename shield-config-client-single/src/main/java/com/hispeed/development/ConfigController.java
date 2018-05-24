@@ -94,6 +94,23 @@ public class ConfigController {
     }
 
     /**
+     * 配置修改页面路由
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping(value = "update-sysconfig", method = {RequestMethod.GET})
+    public String updateConfigPage(HttpServletRequest request, HttpServletResponse response,
+                                   @RequestParam(value = "config-id", defaultValue = "0") String configfId) {
+        LOGGER.debug("进入配置修改页面......configId={},sessionId={}", configfId, request.getSession().getId());
+        /**获取id对应配置项*/
+        SysConfig sysConfig = configRepository.getConfigById(configfId);
+        LOGGER.debug("当前获取到的配置项详情为:{}", sysConfig.toString());
+        request.setAttribute("sysConfig", sysConfig);
+        return "update-sysconfig";
+    }
+
+    /**
      * 禁用配置
      * @param configId
      * @param response
@@ -127,6 +144,12 @@ public class ConfigController {
         return "redirect:/error.html";
     }
 
+    /**
+     * 新增配置
+     * @param request
+     * @param response
+     * @return
+     */
     @RequestMapping(value = "api/config/add-new-config", method = {RequestMethod.POST})
     public String addNewConfig(HttpServletRequest request, HttpServletResponse response) {
 
@@ -151,4 +174,35 @@ public class ConfigController {
         return "redirect:/error.html";
     }
 
+    /**
+     * 修改配置
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping(value = "api/config/update-config", method = {RequestMethod.POST})
+    public String updateConfigDetail(HttpServletRequest request, HttpServletResponse response) {
+
+        LOGGER.info("进入配置项修改action,sessionId=" + request.getSession().getId());
+        String configValue = request.getParameter("configValue");
+        String configDesc = request.getParameter("configDesc");
+        String optUser = request.getParameter("optUser");
+        String projectName = request.getParameter("project-name");
+        String configId = request.getParameter("configId");
+        if (StringUtils.isEmpty(configId) || StringUtils.isEmpty(configValue)
+                || StringUtils.isEmpty(configDesc) || StringUtils.isEmpty(optUser) || StringUtils.isEmpty(projectName)) {
+            LOGGER.debug("configId=" + configId + ",configValue=" + configValue + ",configDesc=" + configDesc
+            + ",optUser=" + optUser + ",projectName=" + projectName);
+            return "redirect:/error.html";
+        }
+        /**调用数据库操作进行新配置持久化*/
+        SysConfig config = new SysConfig();
+        config.setConfigId(Integer.valueOf(configId)).setConfigValue(configValue).setConfigDesc(configDesc).setOptUser(optUser).setProjectName(projectName);
+        if (configRepository.updateSysConfig(config)) {
+            LOGGER.info("配置项修改成功,sessionId={},配置内容={}", request.getSession().getId(), config.toString());
+            return "redirect:/configure.html";
+        }
+        response.setStatus(500);
+        return "redirect:/error.html";
+    }
 }

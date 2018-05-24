@@ -65,7 +65,7 @@ class ConfigRepository {
      * 获取当前应用所有配置项
      * @return
      */
-    public List<SysConfig> getAllConfigs() {
+    protected List<SysConfig> getAllConfigs() {
         String sql = SQL.SQL_FETCH_ALL_CONFIGS;
         final List<SysConfig> sysConfigs = new CopyOnWriteArrayList<>();
         jdbcTemplate.query(sql, new RowCallbackHandler() {
@@ -92,7 +92,7 @@ class ConfigRepository {
      * @param sysConfig
      * @return
      */
-    public boolean addOneSysConfig(SysConfig sysConfig) {
+    protected boolean addOneSysConfig(SysConfig sysConfig) {
         String sql = SQL.INSERT_NEW_SYSCONFIG;
         int count = jdbcTemplate.update(sql, new Object[]{
                 sysConfig.getConfigKey(),
@@ -112,7 +112,7 @@ class ConfigRepository {
      * @param configId
      * @return
      */
-    public boolean enableConfig(int configId) {
+    protected boolean enableConfig(int configId) {
         String sql = SQL.ENABLE_CONFIG;
         int count = jdbcTemplate.update(sql, new Object[]{configId});
         if (count == 1) {
@@ -126,7 +126,7 @@ class ConfigRepository {
      * @param configId
      * @return
      */
-    public boolean disableConfig(int configId) {
+    protected boolean disableConfig(int configId) {
         String sql = SQL.DISABLE_CONFIG;
         int count = jdbcTemplate.update(sql, new Object[]{configId});
         if (count == 1) {
@@ -140,7 +140,7 @@ class ConfigRepository {
      * @param sysConfig
      * @return
      */
-    public boolean updateSysConfig(SysConfig sysConfig) {
+    protected boolean updateSysConfig(SysConfig sysConfig) {
         String sql = SQL.UPDATE_CONFIG;
         if (StringUtils.isEmpty(sysConfig.getOptUser())) {
             sysConfig.setOptUser("administrator");
@@ -160,6 +160,31 @@ class ConfigRepository {
             return true;
         }
         return false;
+    }
+
+    /**
+     * 根据id查询对应的配置项
+     * @param configId
+     * @return
+     */
+    protected SysConfig getConfigById(String configId) {
+        String sql = SQL.SQL_GET_CONFIG_BY_ID;
+        final SysConfig config = new SysConfig();
+        jdbcTemplate.query(sql, new Object[]{configId}, new RowCallbackHandler() {
+            @Override
+            public void processRow(ResultSet rs) throws SQLException {
+                config.setConfigId(rs.getInt("configId"))
+                        .setConfigKey(rs.getString("configKey"))
+                        .setConfigValue(rs.getString("configValue"))
+                        .setConfigDesc(rs.getString("configDesc"))
+                        .setProjectName(rs.getString("projectName"))
+                        .setOptUser(rs.getString("optUser"))
+                        .setInsertTime(rs.getString("insertTime"))
+                        .setUpdateTime(rs.getString("updateTime"))
+                        .setConfigSwitch(rs.getInt("configSwitch"));
+            }
+        });
+        return config;
     }
 
 }

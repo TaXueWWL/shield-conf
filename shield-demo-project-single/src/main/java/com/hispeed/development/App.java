@@ -40,6 +40,7 @@ public class App {
                 .setProjectName("测试工程2222")
                 .setConfigId(20);
         System.out.println(configRepository.updateSysConfig(sysConfig));
+        System.out.println(configRepository.getConfigById("23").toString());
     }
 
     /**

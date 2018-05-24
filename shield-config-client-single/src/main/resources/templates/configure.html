@@ -172,9 +172,6 @@
                     <div>项目名称</div>
                 </td>
                 <td>
-                    <div>启用标志</div>
-                </td>
-                <td>
                     <div>操作者</div>
                 </td>
                 <td>
@@ -182,6 +179,9 @@
                 </td>
                 <td>
                     <div>修改时间</div>
+                </td>
+                <td>
+                    <div>启用标志</div>
                 </td>
                 <td>
                     <div>操作</div>
@@ -211,20 +211,6 @@
                 </td>
                 <td>
                     <div>
-                        <div th:if="${sysConfig.configSwitchDesc} eq '启用'">
-                            <font color="#1e90ff">
-                                <div th:text="${sysConfig.configSwitchDesc}"></div>
-                            </font>
-                        </div>
-                        <div th:if="${sysConfig.configSwitchDesc} eq '禁用'">
-                            <font color="red">
-                                <div th:text="${sysConfig.configSwitchDesc}"></div>
-                            </font>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div>
                         <div th:text="${sysConfig.optUser}"></div>
                     </div>
                 </td>
@@ -239,6 +225,20 @@
                     </div>
                 </td>
                 <td>
+                    <div>
+                        <div th:if="${sysConfig.configSwitchDesc} eq '启用'">
+                            <font color="#1e90ff">
+                                <div th:text="${sysConfig.configSwitchDesc}"></div>
+                            </font>
+                        </div>
+                        <div th:if="${sysConfig.configSwitchDesc} eq '禁用'">
+                            <font color="red">
+                                <div th:text="${sysConfig.configSwitchDesc}"></div>
+                            </font>
+                        </div>
+                    </div>
+                </td>
+                <td>
                     <div style="text-align: center">
                         <a th:href="'/api/config/disable-config.action?config-id=' + ${sysConfig.configId}">
                             <button class="btn btn-danger">禁用</button>
@@ -246,7 +246,11 @@
                         <a th:href="'/api/config/enable-config.action?config-id=' + ${sysConfig.configId}">
                             <button class="btn btn-primary">启用</button>
                         </a>&nbsp;&nbsp;
-                        <button class="btn btn-warning">修改</button>&nbsp;&nbsp;
+                        <a th:href="'/update-sysconfig.html?config-id=' + ${sysConfig.configId}">
+                            <button class="btn btn-warning">
+                            修改
+                            </button>
+                        </a>&nbsp;&nbsp;
                     </div>
                 </td>
             </tr>
@@ -254,7 +258,6 @@
     </div>
     <br/><br/><br/><br/>
 </div>
-
 
 <!--
     时间：2018-05-23
@@ -318,6 +321,7 @@
     </div>
 </div>
 <!-- /.modal -->
+
 <!--
     时间：2017-05-23
     描述：返回头部
