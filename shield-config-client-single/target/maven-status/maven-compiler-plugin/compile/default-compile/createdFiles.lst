@@ -3,7 +3,6 @@ com\hispeed\development\ConfigSubject.class
 com\hispeed\development\ConfigRepository$3.class
 com\hispeed\development\ConfigController.class
 com\hispeed\development\ConfigRepository.class
-com\hispeed\development\ApiSecurityConfig.class
 com\hispeed\development\IConfigPullHandler.class
 com\hispeed\development\Observer.class
 com\hispeed\development\Observable.class
