@@ -1,5 +1,7 @@
 package com.hispeed.development;
 
+import com.alibaba.fastjson.JSON;
+import com.google.gson.Gson;
 import com.hispeed.development.domain.config.SysConfig;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -133,6 +135,41 @@ class ConfigRepository {
             return true;
         }
         return false;
+    }
+
+    /**
+     * 新增用户登录后台账户密码信息
+     * @param userAuthEntity
+     * @return
+     */
+    protected boolean insertUserAuthEntity(AuthUserinfoInitializer.UserAuthEntity userAuthEntity) {
+        String sql = SQL.INSERT_NEW_USER_AUTH_JSON_STR;
+        int count = jdbcTemplate.update(sql, new Object[]{JSON.toJSONString(userAuthEntity)});
+        if (count == 1) {
+            return true;
+        }
+        return false;
+    }
+
+
+    /**
+     * 查询用户登录管理页面账户信息
+     * @return
+     */
+    protected AuthUserinfoInitializer.UserAuthEntity querySheildConfUserAuthEntity() {
+        String sql = SQL.QUERY_USER_AUTH_INFO;
+        final StringBuffer authJson = new StringBuffer();
+        jdbcTemplate.query(sql, new RowCallbackHandler() {
+            @Override
+            public void processRow(ResultSet rs) throws SQLException {
+                authJson.append(rs.getString("CONFIG_VALUE"));
+            }
+        });
+        AuthUserinfoInitializer.UserAuthEntity userAuthEntity = null;
+        if (authJson.toString().length() > 0) {
+            userAuthEntity = new Gson().fromJson(authJson.toString(), AuthUserinfoInitializer.UserAuthEntity.class);
+        }
+        return userAuthEntity;
     }
 
     /**

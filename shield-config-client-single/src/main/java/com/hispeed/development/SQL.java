@@ -80,4 +80,18 @@ class SQL {
             "  DATE_FORMAT(t.UPDATE_TIME,'%Y-%m-%d %H:%i:%s') updateTime\n" +
             " FROM\n" +
             "  sys_config t where t.CONFIG_ID=?";
+
+    /**
+     * 查询用户管理页面登录信息
+     */
+    static String QUERY_USER_AUTH_INFO = "select t.CONFIG_VALUE from sys_config t " +
+            "where t.CONFIG_KEY = \"sheild-conf.user-info\"";
+
+    /**
+     * 新增用户管理页面登录信息
+     */
+    static String INSERT_NEW_USER_AUTH_JSON_STR =
+            "INSERT INTO sys_config(CONFIG_KEY,CONFIG_VALUE,CONFIG_DESC,OPT_USER,PROJECT_NAME) " +
+                    "VALUES ('sheild-conf.user-info',?,'管理页面用户账号密码'," +
+                    "'administrator','auth-info')";
 }

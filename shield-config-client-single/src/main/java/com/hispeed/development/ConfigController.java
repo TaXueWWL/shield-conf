@@ -5,15 +5,18 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -27,7 +30,6 @@ import java.util.concurrent.TimeUnit;
 public class ConfigController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ConfigController.class);
-
 
     @Autowired
     ConfigRepository configRepository;
@@ -65,7 +67,7 @@ public class ConfigController {
             e.printStackTrace();
         }
         request.setAttribute("return", "默认线程池尚未完全关闭，请稍等然后重试");
-        return "redirect:/configure.html";
+        return "redirect:/configure.html?authcode=" + request.getSession().getAttribute("sheild-conf-token");
     }
 
 
@@ -75,9 +77,18 @@ public class ConfigController {
      * @param response
      * @return
      */
-//    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @RequestMapping(value = "configure", method = {RequestMethod.GET})
     public String configure(HttpServletRequest request, HttpServletResponse response) {
+        /**token校验*/
+        String apiToken = (String) request.getSession().getAttribute("sheild-conf-token");
+        if (apiToken == null) {
+            LOGGER.debug("token校验失败,重定向至token授权登录页面");
+            return "redirect:/shield-conf-auth.html";
+        }
+        String authCode = request.getParameter("authcode");
+        if (StringUtils.isEmpty(authCode) || !authCode.equalsIgnoreCase(apiToken)) {
+            return "redirect:/shield-conf-auth.html";
+        }
         LOGGER.debug("进入配置页面......");
         /**加载所有配置项*/
         List<SysConfig> sysConfigs = configRepository.getAllConfigs();
@@ -92,7 +103,38 @@ public class ConfigController {
             }
         }
         request.setAttribute("sysConfigs", sysConfigs);
+        request.setAttribute("authcode", authCode);
         return "configure";
+    }
+
+    /**
+     * 登录路由，获取authcode
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping(value = "shield-conf-auth", method = {RequestMethod.GET})
+    public String shield_conf_auth(HttpServletRequest request, HttpServletResponse response) {
+        LOGGER.debug("跳转至token授权登录页面");
+        return "shield-conf-auth";
+    }
+
+    @RequestMapping(value = "/api/config/fetch-authcode", method = {RequestMethod.GET, RequestMethod.POST})
+    public String fetchAuthcode(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        /**登录校验*/
+        String userName = request.getParameter("sheildConfName");
+        String userPassword = request.getParameter("sheildConfPassword");
+        AuthUserinfoInitializer.UserAuthEntity userAuthEntity = configRepository.querySheildConfUserAuthEntity();
+        if (userName.equals(userAuthEntity.getUserName()) && userPassword.equals(userAuthEntity.getUserPassword())) {
+            LOGGER.debug("[api]开始进行authcode获取逻辑");
+            HttpSession session = request.getSession();
+            String authcode = UUID.randomUUID().toString();
+            LOGGER.debug("当前authcode值为:" + authcode);
+            session.setAttribute("sheild-conf-token", authcode);
+            response.getWriter().write("<html><head><title>auth-code</title></head><body><h2>[sheild-conf-single-client] authcode is: " + authcode + "</h2></body></html>");
+            return null;
+        }
+        return "redirect:/401.html";
     }
 
     /**
@@ -101,10 +143,19 @@ public class ConfigController {
      * @param response
      * @return
      */
-//    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @RequestMapping(value = "update-sysconfig", method = {RequestMethod.GET})
     public String updateConfigPage(HttpServletRequest request, HttpServletResponse response,
                                    @RequestParam(value = "config-id", defaultValue = "0") String configfId) {
+        /**token校验*/
+        String apiToken = (String) request.getSession().getAttribute("sheild-conf-token");
+        if (apiToken == null) {
+            LOGGER.debug("token校验失败,重定向至token授权登录页面");
+            return "redirect:/shield-conf-auth.html";
+        }
+        String authCode = request.getParameter("authcode");
+        if (StringUtils.isEmpty(authCode) || !authCode.equalsIgnoreCase(apiToken)) {
+            return "redirect:/shield-conf-auth.html";
+        }
         LOGGER.debug("进入配置修改页面......configId={},sessionId={}", configfId, request.getSession().getId());
         /**获取id对应配置项*/
         SysConfig sysConfig = configRepository.getConfigById(configfId);
@@ -121,10 +172,10 @@ public class ConfigController {
      */
     @RequestMapping(value = "/api/config/disable-config", method = {RequestMethod.GET})
     public String disableConfigAction(@RequestParam(value = "config-id", defaultValue = "0") Integer configId,
-                                      HttpServletResponse response) {
+                                      HttpServletResponse response, HttpServletRequest request) {
         LOGGER.debug("进入配置禁用action，要禁用的配置config-id={}", configId);
         if (configRepository.disableConfig(configId)) {
-            return "redirect:/configure.html";
+            return "redirect:/configure.html?authcode=" + request.getSession().getAttribute("sheild-conf-token");
         }
         response.setStatus(500);
         return "redirect:/error.html";
@@ -138,10 +189,10 @@ public class ConfigController {
      */
     @RequestMapping(value = "/api/config/enable-config", method = {RequestMethod.GET})
     public String enableConfig(@RequestParam(value = "config-id", defaultValue = "0") Integer configId,
-                                      HttpServletResponse response) {
+                                      HttpServletResponse response, HttpServletRequest request) {
         LOGGER.debug("进入配置启用action，启用的配置config-id={}", configId);
         if (configRepository.enableConfig(configId)) {
-            return "redirect:/configure.html";
+            return "redirect:/configure.html?authcode=" + request.getSession().getAttribute("sheild-conf-token");
         }
         response.setStatus(500);
         return "redirect:/error.html";
@@ -171,7 +222,7 @@ public class ConfigController {
         config.setConfigKey(configKey).setConfigValue(configValue).setConfigDesc(configDesc).setOptUser(optUser).setProjectName(projectName);
         if (configRepository.addOneSysConfig(config)) {
             LOGGER.info("配置项添加成功,sessionId={},配置内容={}", request.getSession().getId(), config.toString());
-            return "redirect:/configure.html";
+            return "redirect:/configure.html?authcode=" + request.getSession().getAttribute("sheild-conf-token");
         }
         response.setStatus(500);
         return "redirect:/error.html";
@@ -203,7 +254,7 @@ public class ConfigController {
         config.setConfigId(Integer.valueOf(configId)).setConfigValue(configValue).setConfigDesc(configDesc).setOptUser(optUser).setProjectName(projectName);
         if (configRepository.updateSysConfig(config)) {
             LOGGER.info("配置项修改成功,sessionId={},配置内容={}", request.getSession().getId(), config.toString());
-            return "redirect:/configure.html";
+            return "redirect:/configure.html?authcode=" + request.getSession().getAttribute("sheild-conf-token");
         }
         response.setStatus(500);
         return "redirect:/error.html";

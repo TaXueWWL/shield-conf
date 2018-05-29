@@ -53,7 +53,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="/configure.html"><b>shield-conf后台配置</b><span class="sr-only">(current)</span></a>
+                        <a th:href="'#'"><b>shield-conf后台配置</b><span class="sr-only">(current)</span></a>
                     </li>
                     <li class="banner-divider"></li>
                     <li>
@@ -246,7 +246,7 @@
                         <a th:href="'/api/config/enable-config.action?config-id=' + ${sysConfig.configId}">
                             <button class="btn btn-primary">启用</button>
                         </a>&nbsp;&nbsp;
-                        <a th:href="'/update-sysconfig.html?config-id=' + ${sysConfig.configId}">
+                        <a th:href="'/update-sysconfig.html?config-id=' + ${sysConfig.configId} + '&amp;authcode=' + ${authcode}">
                             <button class="btn btn-warning">
                             修改
                             </button>

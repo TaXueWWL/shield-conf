@@ -19,9 +19,10 @@
 
         /*主要内容表格*/
         .main-table {
-            margin-left: 2%;
-            margin-left: 2%;
-            width: 95%;
+            margin-left: 25%;
+            margin-left: 25%;
+            width: 50%;
+            margin-top: 12%;
         }
 
         .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
@@ -79,71 +80,33 @@
     </nav>
 </div>
 
-<br/><br/><br/><br/><br/>
-
-<div class="col-md-12 col-lg-12 col-xs-12 main-table">
+<div class="col-md-6 col-lg-6 col-xs-6 main-table">
     <div class="table-responsive">
-        <form action="/api/config/update-config.action" method="post">
+        <form action="/api/config/fetch-authcode.action" method="post">
             <table class="table table-bordered">
                 <tr>
-                    <td colspan="2">
+                    <td colspan="2" class="alert-info">
                         <center>
-                            <h4>配&nbsp;&nbsp;置&nbsp;&nbsp;修&nbsp;&nbsp;改</h4>
+                            <h4>登&nbsp;&nbsp;录&nbsp;&nbsp;授&nbsp;&nbsp;权</h4>
                         </center>
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="alert-info">
-                        <div><center>配置键key</center></div>
+                    <td>
+                        <div><center><strong>用户名</strong></center></div>
                     </td>
-                    <td class="alert-info">
-                        <div><input type="text" class="form-control" id="configKey" name="configKey" th:value="${sysConfig.configKey}" disabled="disabled"/></div>
+                    <td>
+                        <div><input placeholder="请输入用户登录账户名" type="text" class="form-control" id="sheildConfName" name="sheildConfName" required="required"/></div>
                     </td>
                 </tr>
 
                 <tr>
                     <td>
-                        <div><center>配置值</center></div>
+                        <div><center><strong>密码</strong></center></div>
                     </td>
                     <td>
-                        <div><input type="text" class="form-control" id="configValue" name="configValue" th:value="${sysConfig.configValue}" required="required" /></div>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="alert-info">
-                        <div><center>配置描述</center></div>
-                    </td>
-                    <td class="alert-info">
-                        <div><input type="text" class="form-control" id="configDesc" name="configDesc" placeholder="配置描述" th:value="${sysConfig.configDesc}" required="required"/></div>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <div><center>操作者</center></div>
-                    </td>
-                    <td>
-                        <div><input type="text" class="form-control" id="optUser" name="optUser" th:value="${sysConfig.optUser}" required="required" /></div>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="alert-info">
-                        <div><center>项目名称</center></div>
-                    </td>
-                    <td class="alert-info">
-                        <div><input type="text" class="form-control" id="project-name" name="project-name" th:value="${sysConfig.projectName}" required="required" /></div>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <div><center>入库时间</center></div>
-                    </td>
-                    <td>
-                        <div><input type="text" class="form-control" id="insertTime" name="insertTime" th:value="${sysConfig.insertTime}" disabled="disabled" /></div>
+                        <div><input placeholder="请输入用户登录密码" type="text" class="form-control" id="sheildConfPassword" name="sheildConfPassword" required="required" /></div>
                     </td>
                 </tr>
 
@@ -155,7 +118,6 @@
                         </center>
                     </td>
                 </tr>
-                <input type="hidden" class="form-control" name="configId" th:value="${sysConfig.configId}"/>
             </table>
         </form>
     </div>
