@@ -11,8 +11,6 @@
     <module>shield-demo-project</module>
     <module>shield-rpc-config-server</module>
     <module>shield-config-client</module>
-    <module>shield-config-client-single</module>
-    <module>shield-demo-project-single</module>
   </modules>
   <packaging>pom</packaging>
 
