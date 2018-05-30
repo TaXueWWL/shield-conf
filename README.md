@@ -3,8 +3,10 @@
 > Shield-CONF是一个分布式配置服务平台，提供统一的配置管理服务。
 
 ## 特性
-1. 分为C/S架构，客户端采用PULL模式定时更新配置，通过简洁API从本地加载配置;
-2. 在线管理: (TODO)提供配置中心, 通过Web界面在线操作配置数据;
+0. 提供两种版本的配置方式，单机版直接添加依赖到项目中即可集成配置管理能力；
+分布式版本需要依赖zookeeper，基于dubbo实现了集群方式的配置管理能力。
+1. 分布式版本分为C/S架构，客户端采用PULL模式定时更新配置，通过简洁API从本地加载配置;
+2. 在线管理: 提供配置中心, 通过Web界面在线操作配置数据;
 3. 动态更新: 配置更新后, 客户端轮询服务端获取最新配置, 项目中配置数据会实时更新并生效,
 不需要重启线上机器;
 4. 配置中心HA：配置中心支持集群部署，提供系统可用性；
@@ -17,7 +19,7 @@
 10. 配置变更监听功能：(TODO)可开发Listener逻辑，监听配置变更事件，可据此动态刷新JDBC
 连接池等高级功能；
 11. 空配置处理：主动缓存null或不存在类型配置，避免配置请求穿透到ZK引发雪崩问题；
-12. 用户管理：(TODO)支持在线添加和维护用户，包括普通用户和管理员两种类型用户；
+12. 登录授权：配置管理模块需要在登录后获取授权码，拼接授权码后方能访问，提高了安全性
 13. 配置权限控制；(TODO)以项目为维度进行配置权限控制，管理员拥有全部项目权限，普通用户
 只有分配才拥有项目下配置的查看和管理权限；
 14. 历史版本回滚：(TODO)记录配置变更历史，方便历史配置版本回溯，默认记录10个历史版本；
@@ -67,7 +69,7 @@
 		<dependency>
             <artifactId>shield-config-client-single</artifactId>
             <groupId>com.hispeed.development</groupId>
-            <version>1.0</version>
+            <version>1.3</version>
         </dependency>
 2. 新增客户端响应，响应信息存在Redis中，响应信息
 
@@ -77,18 +79,12 @@
 
         单机版配置页面url：ip:port/configure.html
         
-4. 当前配置页面使用了springboot-security自带的basic认证，账号为user，密码为启动日志中的随机指令，格式如下
+4. 单机版配置管理页面新增授权码机制。应用启动时会在本地配置表中添加默认的用户账户名密码，默认为admin，12345
+登陆后尽快修改为自己的用户名密码。不登录的情况下直接访问配置页面路由**/configure.html**会被强制重定向
+到登录页面。输入用户名密码，获取到授权token，访问配置路由页面，拼接授权token，即可进入配置管理页面。
 
-        Using default security password: 9073654f-abbb-4597-aaf3-09ab37acbbdd
-    
-也可以自定义账号密码，只需要在你的application.properties中添加如下配置
-
-        security.user.name=admin
-        security.user.password=123456
-
-或者直接关闭这个默认的basic认证
-
-        security.basic.enabled=false
+        url：ip:port/configure.html?authcode=xxxxxxxxxxxxxxxxxxxxxxxxx
+5. 正在规划单机版本的拆分，与分布式版本作为一个大项目的子项目同步开发。
    
         
    

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,7 +23,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author wuwl@19pay.com.cn
  * @date 2018-4-17
- * @desc
+ * @desc 配置服务controller
  */
 @Controller
 public class ConfigController {
@@ -37,13 +36,13 @@ public class ConfigController {
      * 设置刷新频率及线程池大小
      * @param request
      * @param response
-     * @return pool-size=10&delay=5
+     * @return pool-size=10&delay=10
      */
     @RequestMapping(value = "execute", method = {RequestMethod.GET, RequestMethod.POST})
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         LOGGER.debug("ConfigSubject配置被观察者接口开始执行......");
         String pool_size = request.getParameter("pool-size") == null ? "10" : request.getParameter("pool-size");
-        String delay = request.getParameter("delay") == null ? "5" : request.getParameter("delay");
+        String delay = request.getParameter("delay") == null ? "10" : request.getParameter("delay");
         ConfigCommandLineRunner.configExec.shutdown();
         if (ConfigCommandLineRunner.configExec.isShutdown()) {
             ConfigCommandLineRunner.configExec = Executors.newScheduledThreadPool(Integer.valueOf(pool_size));

@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 172.30.61.11
-Source Server Version : 50721
-Source Host           : 172.30.61.11:3306
+Source Server         : localhost-3306
+Source Server Version : 50621
+Source Host           : 127.0.0.1:3306
 Source Database       : gyweixin
 
 Target Server Type    : MYSQL
-Target Server Version : 50721
+Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2018-04-17 19:08:47
+Date: 2018-05-30 02:17:34
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -32,19 +32,6 @@ CREATE TABLE `sys_config` (
   `OPT_USER` varchar(32) DEFAULT 'administrator',
   `INSERT_TIME` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '入库时间',
   `UPDATE_TIME` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间',
-  PRIMARY KEY (`CONFIG_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of sys_config
--- ----------------------------
-INSERT INTO `sys_config` VALUES ('1', 'name1', 'snowalker1', null, null, 'shop-portal-server', null, null, '0', 'administrator', '2018-04-02 20:51:45', '2018-04-02 20:51:45');
-INSERT INTO `sys_config` VALUES ('3', 'name3', 'snowalker3', '测试配置', null, 'shop-portal-server', null, null, '0', 'administrator', '2018-04-03 15:08:42', '2018-04-03 15:08:42');
-INSERT INTO `sys_config` VALUES ('4', 'name4', 'snowalker412', null, null, 'shop-portal-server', null, null, '0', 'administrator', '2018-04-03 16:32:28', '2018-04-03 16:32:28');
-INSERT INTO `sys_config` VALUES ('5', 'name5', 'snowalker5666', null, null, 'shop-portal-server', null, null, '0', 'administrator', '2018-04-03 16:35:43', '2018-04-03 16:35:43');
-INSERT INTO `sys_config` VALUES ('7', 'QINQIN', '海纳百川123', null, null, 'shop-portal-server', null, null, '0', 'administrator', '2018-04-09 10:35:25', '2018-04-09 10:35:25');
-INSERT INTO `sys_config` VALUES ('11', 'switch', 'close', null, null, 'common', null, null, '0', 'administrator', '2018-04-09 20:04:52', '2018-04-09 20:04:52');
-INSERT INTO `sys_config` VALUES ('12', 'name666', '123123', null, null, 'common', null, null, '0', 'administrator', '2018-04-17 18:26:21', '2018-04-17 18:26:21');
-INSERT INTO `sys_config` VALUES ('14', 'DADDY', '你爸爸1231', null, null, 'common', null, null, '0', 'administrator', '2018-04-17 18:36:15', '2018-04-17 18:36:15');
-INSERT INTO `sys_config` VALUES ('15', 'mom123', '23333', null, null, 'common', null, null, '0', 'administrator', '2018-04-17 18:38:38', '2018-04-17 18:38:38');
-INSERT INTO `sys_config` VALUES ('16', '阿萨德撒旦撒大123', '阿萨德撒旦撒123123', null, null, 'common', null, null, '0', 'administrator', '2018-04-17 18:56:17', '2018-04-17 18:56:17');
+  PRIMARY KEY (`CONFIG_ID`),
+  UNIQUE KEY `config-key` (`CONFIG_KEY`)
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
